@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AgricultureCalculator</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="idanevus">Idanevus</string>
+    <string name="mädanevus">Mädanevus</string>
+    <string name="hallitus">Hallitus</string>
+    <string name="title_activity_germinative">GerminativeActivity</string>
+</resources>
