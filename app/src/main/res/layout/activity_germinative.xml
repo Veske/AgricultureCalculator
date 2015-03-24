@@ -2,8 +2,6 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:paddingBottom="@dimen/activity_vertical_margin"
                 tools:context="veske.com.agriculturecalculator.germinative.GerminativeActivity" >
@@ -40,22 +38,25 @@
 
             <TextView
                 android:id="@+id/puhtus"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight=".40"
                 android:textSize="20sp"
                 android:text="Puhtuse %" />
 
             <Space
-                android:layout_width="16dp"/>
+                android:layout_width="13dp"/>
 
             <EditText
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:inputType="number"
+                android:layout_weight=".60"
+                android:padding="3dp"
+                android:inputType="numberDecimal"
                 android:ems="10"
                 android:id="@+id/editPuhtus"
                 android:background="@drawable/input_field_style"
-                android:hint="0%"/>
+                android:hint="0 %"/>
 
 
         </TableRow>
@@ -70,24 +71,56 @@
 
             <TextView
                 android:id="@+id/teraMass"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight=".40"
                 android:textSize="20sp"
                 android:text="1000 tera mass, g" />
 
-
-
             <Space
-                android:layout_width="16dp"/>
+                android:layout_width="13dp"/>
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:inputType="number"
+                android:layout_weight=".60"
+                android:padding="3dp"
+                android:inputType="numberDecimal"
                 android:ems="10"
                 android:id="@+id/editTeraMass"
                 android:background="@drawable/input_field_style"
-                android:hint="0g"/>
+                android:hint="0 g"/>
+        </TableRow>
+
+        <Space
+            android:layout_height="20dp"/>
+
+        <TableRow
+            android:id="@+id/mainMenuRow11"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+
+            <TextView
+                android:id="@+id/idanevTera"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".40"
+                android:textSize="20sp"
+                android:text="Idanevat tera"/>
+
+            <Space
+                android:layout_width="13dp"/>
+
+            <EditText
+                android:id="@+id/editIdanevTera"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight=".60"
+                android:padding="3dp"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:background="@drawable/input_field_style"
+                android:hint="0 m2"/>
         </TableRow>
 
         <Space
@@ -98,44 +131,50 @@
             android:layout_height="fill_parent">
 
             <TextView
-                android:id="@+id/kylviseNorm"
-                android:layout_width="wrap_content"
+                android:id="@+id/idanevus"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight=".40"
                 android:text="Idanevuse %"
-                android:textSize="20sp" />
+                android:textSize="20sp"/>
 
             <Space
-                android:layout_width="16dp"/>
+                android:layout_width="13dp"/>
 
             <EditText
-                android:layout_width="wrap_content"
+                android:id="@+id/editIdanevus"
+                android:layout_width="0dp"
                 android:layout_height="fill_parent"
+                android:layout_weight=".60"
+                android:padding="3dp"
                 android:inputType="numberDecimal"
                 android:ems="10"
-                android:id="@+id/editKylviseNorm"
                 android:background="@drawable/input_field_style"
-                android:hint="0%" />
+                android:hint="0 %"/>
         </TableRow>
 
         <Space
             android:layout_height="20dp"/>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-
-
-
-        </TableRow>
     </TableLayout>
 
-
     <Button
-        android:id="@+id/button"
+        android:id="@+id/calculateGerminative"
         android:text="Arvuta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/mainMenuLayout"
         android:background="@drawable/input_field_style"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:onClick="calculateGerminative"/>
+
+    <TextView
+        android:id="@+id/textViewCalculationResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_below="@+id/calculateGerminative"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:textSize="40sp"/>
+
 </RelativeLayout>
