@@ -2,6 +2,7 @@ package veske.com.agriculturecalculator.germinative;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,13 +19,20 @@ public class GerminativeActivity extends ActionBarActivity {
     private EditText germinative;
     private TextView calculationResult;
 
+    private static final String TAG = "GerminativeActivity";
+
     public void calculateGerminative(View v) {
         // (Idanevat tera * 1000 tera / Puhtus / Idavevus) / 100
-        float tempResult = (Float.parseFloat(germinativeSeed.getText().toString()) *
-                Float.parseFloat(seedMass.getText().toString()) /
-                Float.parseFloat(clean.getText().toString()) /
-                Float.parseFloat(germinative.getText().toString())) / 100;
-        calculationResult.setText("Vastus: " + Float.toString(tempResult));
+        try {
+            float tempResult = (Float.parseFloat(germinativeSeed.getText().toString()) *
+                    Float.parseFloat(seedMass.getText().toString()) /
+                    Float.parseFloat(clean.getText().toString()) /
+                    Float.parseFloat(germinative.getText().toString())) / 100;
+            calculationResult.setText(Float.toString(tempResult) + " kg/ha");
+        } catch (NumberFormatException ex) {
+            Log.e(TAG, "ERROR: No numbers found for calculation!");
+            calculationResult.setText("0");
+        }
     }
 
     @Override
