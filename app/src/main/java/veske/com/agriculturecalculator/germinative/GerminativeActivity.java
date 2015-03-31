@@ -1,19 +1,26 @@
 package veske.com.agriculturecalculator.germinative;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 import veske.com.agriculturecalculator.R;
+import veske.com.agriculturecalculator.services.FileService;
 
 public class GerminativeActivity extends ActionBarActivity {
 
@@ -22,6 +29,11 @@ public class GerminativeActivity extends ActionBarActivity {
     private EditText germinativeSeed;
     private EditText germinative;
     private TextView calculationResult;
+
+    private Resources resources;
+    private Context context;
+
+    private FileService fileService;
 
     private static final String TAG = "GerminativeActivity";
 
@@ -59,60 +71,34 @@ public class GerminativeActivity extends ActionBarActivity {
     }
 
     public void showInfoToast(View v) {
-        /*
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.toast_layout, (ViewGroup) findViewById(R.id.toast_layout_root));
-        TextView textView = (TextView) layout.findViewById(R.id.toast_name);
-        textView.setText("Kultuur");
-        TextView textView1 = (TextView) layout.findViewById(R.id.toast_meta_info);
-        textView1.setText("100 tera mass, g");
+
+        TableLayout t = (TableLayout) layout.findViewById(R.id.toastTable);
+        View mTableRow = null;
+
+        mTableRow = inflater.inflate(R.layout.toast_table_layout_row, null);
+        //mTableRow = (TableRow) View.inflate(getActivity(), R.layout.mRowLayout, null);
+        t.addView(mTableRow);
+
+        try {
+            String lol = fileService.LoadFile("kultuur");
+
+            String[] arr = lol.split("_");
+
+            for (String ss : arr) {
+                Log.i("INFO: ", ss);
+            }
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
         Toast toast = new Toast(getApplicationContext());
         toast.setGravity(Gravity.CENTER_VERTICAL, 0 ,0);
         toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(layout);
         toast.show();
-*/
-
-        String toastFormat = "%-20s %-15s%n";
-        ArrayList<String> strings = new ArrayList<>();
-        strings.add(String.format(toastFormat, "Kultuur", "      100 tera mass, g"));
-        strings.add(String.format(toastFormat, "Talinisu", "      min. 36"));
-        strings.add(String.format(toastFormat, "Suvinisu", "     min. 35"));
-        strings.add(String.format(toastFormat, "Söödaoder", "  min. 38"));
-        strings.add(String.format(toastFormat, "Õlleoder", "     min. 41"));
-        strings.add(String.format(toastFormat, "Toidukaer", "   min. 31 (keskm. 36-39)"));
-        strings.add(String.format(toastFormat, "Söödakaer", "  min. 31"));
-        strings.add(String.format(toastFormat, "Rukis", "       min. 28"));
-        strings.add(String.format(toastFormat, "Talirüps", "      keskm. 2,8 - 3,2"));
-        strings.add(String.format(toastFormat, "Suvirüps", "     keskm. 2,3 - 2,4"));
-        strings.add(String.format(toastFormat, "Taliraps", "      keskm. 4,4 - 4,6"));
-        strings.add(String.format(toastFormat, "Suviraps", "     keskm. 3,3 - 3,4"));
-        strings.add(String.format(toastFormat, "Söödahernes", "min 220"));
-
-        StringBuilder builder = new StringBuilder();
-        for (String s : strings) {
-            builder.append(s);
-        }
-
-        Toast.makeText(this, builder, Toast.LENGTH_LONG).show();
-
-        /*
-        Toast.makeText(getApplicationContext(),
-                "Kultuur\t\t1000 tera mass, g\n" +
-                "Talinisu\t\tmin. 36\n" +
-                "Suvinisu\t\tmin. 35\n" +
-                "Söödaoder\t\tmin. 38\n" +
-                "Õlleoder\t\tmin. 41\n" +
-                "Toidukaer\t\tmin. 31 (keskm. 36-39)\n" +
-                "Söödakaer\t\tmin. 31\n" +
-                "Rukis\t\tmin 28\n" +
-                "Talirüps\t\tkeskm. 2,8-3,2\n" +
-                "Suvirüps\t\tkeskm. 2,3-2,4\n" +
-                "Taliraps\t\tkeskm. 4,4-4,6\n" +
-                "Suviraps\t\tkeskm. 3,3-3,4\n" +
-                "Söödahernes\t\tmin. 220", Toast.LENGTH_LONG).show();
-        */
     }
 
     @Override
@@ -122,6 +108,7 @@ public class GerminativeActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_germinative);
         initializeVariables();
+        fileService = new FileService(this);
     }
 
     @Override

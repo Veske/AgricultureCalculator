@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:id="@+id/toast_layout_root"
               android:orientation="horizontal"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
               android:padding="8dp"
-              android:background="#DAAA">
+              android:background="#c3484848">
 
-    <TextView
-        android:id="@+id/toast_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#FFF"/>
+    <TableLayout
+        android:id="@+id/toastTable"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-    <Space
-        android:layout_width="13dp"
-        android:layout_height="0dp"/>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
 
-    <TextView
-        android:id="@+id/toast_meta_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#FFF"/>
+            <TextView
+                android:tag="toast_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".50"
+                android:text="Kultuur"
+                android:textAllCaps="true"/>
 
-</LinearLayout>
+            <TextView
+                android:tag="toast_params"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".50"
+                android:text="1000 tera mass g"
+                android:textAllCaps="true"/>
+        </TableRow>
+
+    </TableLayout>
+</RelativeLayout>
