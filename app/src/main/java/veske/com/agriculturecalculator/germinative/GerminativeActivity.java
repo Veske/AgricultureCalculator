@@ -5,12 +5,12 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.List;
 
 import veske.com.agriculturecalculator.R;
 import veske.com.agriculturecalculator.services.FileService;
@@ -32,10 +33,12 @@ public class GerminativeActivity extends ActionBarActivity {
 
     private Resources resources;
     private Context context;
+    private Toast toast;
 
     private FileService fileService;
 
     private static final String TAG = "GerminativeActivity";
+    private String simpleToastText;
 
     public void calculateGerminative(View v) {
         // (Idanevat tera * 1000 tera / Puhtus / Idavevus) / 100
@@ -62,8 +65,6 @@ public class GerminativeActivity extends ActionBarActivity {
 
             //calculationResult.setText(Float.toString(tempResult) + " kg/ha" + "  Alternate value: " + result2.toString());
             calculationResult.setText(String.format("%.0f kg/ha", result2));
-
-            Toast.makeText(getApplicationContext(), (String) result2.toString(), Toast.LENGTH_LONG).show();
         } catch (NumberFormatException ex) {
             Log.e(TAG, "ERROR: No numbers found for calculation!");
             calculationResult.setText("0");
@@ -71,34 +72,32 @@ public class GerminativeActivity extends ActionBarActivity {
     }
 
     public void showInfoToast(View v) {
-        LayoutInflater inflater = getLayoutInflater();
-        View layout = inflater.inflate(R.layout.toast_layout, (ViewGroup) findViewById(R.id.toast_layout_root));
+        if (toast != null)
+            toast.cancel();
 
-        TableLayout t = (TableLayout) layout.findViewById(R.id.toastTable);
-        View mTableRow = null;
+        Button infoButton = (Button) v;
 
-        mTableRow = inflater.inflate(R.layout.toast_table_layout_row, null);
-        //mTableRow = (TableRow) View.inflate(getActivity(), R.layout.mRowLayout, null);
-        t.addView(mTableRow);
-
-        try {
-            String lol = fileService.LoadFile("kultuur");
-
-            String[] arr = lol.split("_");
-
-            for (String ss : arr) {
-                Log.i("INFO: ", ss);
-            }
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        switch (v.getTag().toString()) {
+            case "seedMassInfo":
+                createTableToast("kultuur");
+                break;
+            case "germinativeInfo":
+                simpleToastText = "Idanevuse protsent väljendatakse protsentides, " +
+                        "mis on saadud analüüsitulemustes. Sertifitseeritud seemne " +
+                        "puhul on idanevuse protsent märgitud seemneetiketil.";
+                createToast();
+                break;
+            case "cleanInfo":
+                simpleToastText = "Seemne puhtuse protsenti mõjutavad erinevad lisandid" +
+                        " seemnematerjalis. Teralisandid, umbrohuseemned, katkised terad" +
+                        " ja muu materjal mõjutavad seemnematerjali kvaliteeti" +
+                        " ja lõppkokkuvõttes külvisenormi.";
+                createToast();
+                break;
+            case "seedInfo":
+                createTableToast("idanevat_tera");
+                break;
         }
-
-        Toast toast = new Toast(getApplicationContext());
-        toast.setGravity(Gravity.CENTER_VERTICAL, 0 ,0);
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.setView(layout);
-        toast.show();
     }
 
     @Override
@@ -108,7 +107,6 @@ public class GerminativeActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_germinative);
         initializeVariables();
-        fileService = new FileService(this);
     }
 
     @Override
@@ -139,7 +137,43 @@ public class GerminativeActivity extends ActionBarActivity {
         germinativeSeed = (EditText) findViewById(R.id.editIdanevTera);
         germinative = (EditText) findViewById(R.id.editIdanevus);
         calculationResult = (TextView) findViewById(R.id.textViewCalculationResult);
+        fileService = new FileService(this);
 
         calculationResult.setAllCaps(true);
+    }
+
+    private void createTableToast(String fileName) {
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.toast_layout, (ViewGroup) findViewById(R.id.toast_layout_root));
+
+        TableLayout t = (TableLayout) layout.findViewById(R.id.toastTable);
+        View mTableRow = null;
+
+        try {
+            List<String> toastStrings = fileService.loadFile(fileName);
+            for (int i = 0, j = toastStrings.size(); i < j; i += 2) {
+                mTableRow = inflater.inflate(R.layout.toast_table_layout_row, (ViewGroup) findViewById(R.id.toast_row));
+                // Set text for name field
+                TextView name = (TextView) mTableRow.findViewWithTag("toast_name");
+                name.setText(toastStrings.get(i).trim());
+                // Set text for param field
+                TextView param = (TextView) mTableRow.findViewWithTag("toast_params");
+                param.setText(toastStrings.get(i + 1));
+
+                t.addView(mTableRow);
+            }
+        } catch (IOException ex) {
+            Log.i("INFO: ", ex.getMessage());
+        }
+
+        toast = new Toast(getApplicationContext());
+        //toast.setGravity(Gravity.CENTER_VERTICAL, 0 ,0);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+        toast.show();
+    }
+
+    public void createToast() {
+        toast.makeText(getApplicationContext(), simpleToastText, Toast.LENGTH_LONG).show();
     }
 }

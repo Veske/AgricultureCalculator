@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/toast_layout_root"
-              android:orientation="horizontal"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:padding="8dp"
-              android:background="#c3484848">
+                android:id="@+id/toast_layout_root"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="#cd2b7fb2">
 
     <TableLayout
         android:id="@+id/toastTable"
@@ -15,22 +15,6 @@
         <TableRow
             android:layout_height="wrap_content"
             android:layout_width="wrap_content">
-
-            <TextView
-                android:tag="toast_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".50"
-                android:text="Kultuur"
-                android:textAllCaps="true"/>
-
-            <TextView
-                android:tag="toast_params"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".50"
-                android:text="1000 tera mass g"
-                android:textAllCaps="true"/>
         </TableRow>
 
     </TableLayout>

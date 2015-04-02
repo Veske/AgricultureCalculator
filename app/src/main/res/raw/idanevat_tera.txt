@@ -1,0 +1,13 @@
+Kultuur_soovituslik idanevat tera ruutmeetrile_
+Talinisu_180 - 500 id tera/m2_
+Suvinisu_320 - 600  id tera/m2_
+Söödaoder_250 - 600 id tera/m2_
+Õlleoder_250 - 600 id tera/m2_
+Toidukaer_250 - 600 id tera/m2_
+Söödakaer_250 - 600 id tera/m2_
+Rukis_150 - 320 id tera/m2_
+Talirüps_50-100  id tera/m2_
+Suvirüps_75- 150  id tera/m2_
+Taliraps_25 - 75   id tera/m2_
+Suviraps_75 - 100 id tera/m2_
+Söödahernes_50 - 120 id tera/m2_

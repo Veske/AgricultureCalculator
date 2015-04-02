@@ -39,13 +39,11 @@
                     android:layout_width="13dp"/>
 
                 <Button
-                    android:id="@+id/showToast"
+                    android:tag="cleanInfo"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:background="@drawable/info"
                     android:onClick="showInfoToast"/>
-
-
             </TableRow>
 
             <Space
@@ -83,6 +81,16 @@
                     android:textSize="20sp"
                     android:text="1000 tera mass, g"
                     android:textAllCaps="true"/>
+
+                <Space
+                    android:layout_width="13dp"/>
+
+                <Button
+                    android:tag="seedMassInfo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/info"
+                    android:onClick="showInfoToast"/>
             </TableRow>
 
             <Space
@@ -124,6 +132,7 @@
                     android:layout_width="13dp"/>
 
                 <Button
+                    android:tag="seedInfo"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:background="@drawable/info"
@@ -165,6 +174,16 @@
                     android:text="Idanevuse %"
                     android:textSize="20sp"
                     android:textAllCaps="true"/>
+
+                <Space
+                    android:layout_width="13dp"/>
+
+                <Button
+                    android:tag="germinativeInfo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/info"
+                    android:onClick="showInfoToast"/>
             </TableRow>
 
             <Space

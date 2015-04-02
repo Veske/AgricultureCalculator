@@ -10,7 +10,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".50"
-        android:text="Kultuur"
+        android:text=""
         android:textAllCaps="true"/>
 
     <TextView
@@ -18,6 +18,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".50"
-        android:text="1000 tera mass g"
+        android:text=""
         android:textAllCaps="true"/>
 </TableRow>
