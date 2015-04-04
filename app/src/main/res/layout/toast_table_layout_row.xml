@@ -11,7 +11,11 @@
         android:layout_height="wrap_content"
         android:layout_weight=".50"
         android:text=""
-        android:textAllCaps="true"/>
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/bright_foreground_material_dark"
+        android:shadowColor="#BB000000"
+        android:shadowRadius="2.75"/>
 
     <TextView
         android:tag="toast_params"
@@ -19,5 +23,9 @@
         android:layout_height="wrap_content"
         android:layout_weight=".50"
         android:text=""
-        android:textAllCaps="true"/>
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/bright_foreground_material_dark"
+        android:shadowColor="#BB000000"
+        android:shadowRadius="2.75"/>
 </TableRow>

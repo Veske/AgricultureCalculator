@@ -63,7 +63,7 @@
                     android:ems="10"
                     android:id="@+id/editPuhtus"
                     android:background="@drawable/input_field_style"
-                    android:hint="0 %"/>
+                    android:hint="@string/clean_hint"/>
             </TableRow>
 
             <Space
@@ -202,7 +202,7 @@
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:background="@drawable/input_field_style"
-                    android:hint="0 %"/>
+                    android:hint="@string/germinative_hint"/>
             </TableRow>
 
             <Space

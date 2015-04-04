@@ -47,8 +47,22 @@ public class GerminativeActivity extends ActionBarActivity {
 
             BigDecimal a = new BigDecimal(germinativeSeed.getText().toString());
             BigDecimal b = new BigDecimal(seedMass.getText().toString());
-            BigDecimal c = new BigDecimal(clean.getText().toString());
-            BigDecimal d = new BigDecimal(germinative.getText().toString());
+
+            BigDecimal c;
+            BigDecimal d;
+
+            if (clean.getText().toString().equals("")) {
+                c = new BigDecimal("100");
+            } else {
+                c = new BigDecimal(clean.getText().toString());
+            }
+
+            if (germinative.getText().toString().equals("")) {
+                d = new BigDecimal("100");
+            } else {
+                d = new BigDecimal(germinative.getText().toString());
+            }
+
             BigDecimal hundred = new BigDecimal("100");
             BigDecimal test = new BigDecimal("10000");
 
@@ -58,16 +72,10 @@ public class GerminativeActivity extends ActionBarActivity {
             result2 = result2.divide(hundred);
             result2 = result2.multiply(test);
 
-            float tempResult = (Float.parseFloat(germinativeSeed.getText().toString()) *
-                    Float.parseFloat(seedMass.getText().toString()) /
-                    Float.parseFloat(clean.getText().toString()) /
-                    Float.parseFloat(germinative.getText().toString())) / 100;
-
-            //calculationResult.setText(Float.toString(tempResult) + " kg/ha" + "  Alternate value: " + result2.toString());
             calculationResult.setText(String.format("%.0f kg/ha", result2));
         } catch (NumberFormatException ex) {
             Log.e(TAG, "ERROR: No numbers found for calculation!");
-            calculationResult.setText("0");
+            calculationResult.setText("0 kg/ha");
         }
     }
 
