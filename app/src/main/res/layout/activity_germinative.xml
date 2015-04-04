@@ -16,58 +16,7 @@
             android:isScrollContainer="true"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tableLayout"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true">
-
-            <TableRow
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:minHeight="30dp">
-
-
-                <TextView
-                    android:id="@+id/puhtus"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".40"
-                    android:textSize="20sp"
-                    android:text="Puhtuse %"
-                    android:textAllCaps="true"/>
-
-                <Space
-                    android:layout_width="13dp"/>
-
-                <Button
-                    android:tag="cleanInfo"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/info"
-                    android:onClick="showInfoToast"/>
-            </TableRow>
-
-            <Space
-                android:layout_height="3dp"/>
-
-            <TableRow
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:minHeight="30dp">
-
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight=".60"
-                    android:padding="3dp"
-                    android:inputType="numberDecimal"
-                    android:ems="10"
-                    android:id="@+id/editPuhtus"
-                    android:background="@drawable/input_field_style"
-                    android:hint="@string/clean_hint"/>
-            </TableRow>
-
-            <Space
-                android:layout_height="20dp"/>
+            android:id="@+id/tableLayout">
 
             <TableRow
                 android:layout_height="wrap_content"
@@ -109,7 +58,8 @@
                     android:ems="10"
                     android:id="@+id/editTeraMass"
                     android:background="@drawable/input_field_style"
-                    android:hint="0 g"/>
+                    android:hint="0 g"
+                    android:gravity="center"/>
             </TableRow>
 
             <Space
@@ -125,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".40"
                     android:textSize="20sp"
-                    android:text="Idanevat tera"
+                    android:text="@string/germinative_seed"
                     android:textAllCaps="true"/>
 
                 <Space
@@ -156,7 +106,8 @@
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:background="@drawable/input_field_style"
-                    android:hint="0 m2"/>
+                    android:hint="0 m2"
+                    android:gravity="center"/>
             </TableRow>
 
             <Space
@@ -202,11 +153,59 @@
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:background="@drawable/input_field_style"
-                    android:hint="@string/germinative_hint"/>
+                    android:hint="@string/germinative_hint"
+                    android:gravity="center"/>
             </TableRow>
 
             <Space
                 android:layout_height="20dp"/>
+
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:minHeight="30dp">
+
+
+                <TextView
+                    android:id="@+id/puhtus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".40"
+                    android:textSize="20sp"
+                    android:text="Puhtuse %"
+                    android:textAllCaps="true"/>
+
+                <Space
+                    android:layout_width="13dp"/>
+
+                <Button
+                    android:tag="cleanInfo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/info"
+                    android:onClick="showInfoToast"/>
+            </TableRow>
+
+            <Space
+                android:layout_height="3dp"/>
+
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:minHeight="30dp">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight=".60"
+                    android:padding="3dp"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/editPuhtus"
+                    android:background="@drawable/input_field_style"
+                    android:hint="@string/clean_hint"
+                    android:gravity="center"/>
+            </TableRow>
         </TableLayout>
     </ScrollView>
 
@@ -215,11 +214,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        android:textSize="40sp"
-        android:layout_below="@+id/scrollView"
+        android:gravity="center"
+        android:textSize="35sp"
         android:layout_above="@+id/calculateGerminative"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/scrollView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
     <Button
         android:id="@+id/calculateGerminative"
@@ -231,6 +233,8 @@
         android:textAllCaps="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"/>
 
 </RelativeLayout>

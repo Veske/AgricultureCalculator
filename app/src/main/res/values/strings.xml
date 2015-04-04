@@ -7,4 +7,5 @@
     <string name="mädanevus">Mädanevus</string>
     <string name="hallitus">Hallitus</string>
     <string name="title_activity_germinative">Idanevuse kalkulaator</string>
+    <string name="germinative_seed">Idanevat tera</string>
 </resources>
