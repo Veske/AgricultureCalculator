@@ -1,7 +1,5 @@
 package veske.com.agriculturecalculator.germinative;
 
-import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -10,14 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.List;
 
 import veske.com.agriculturecalculator.R;
@@ -31,8 +27,6 @@ public class GerminativeActivity extends ActionBarActivity {
     private EditText germinative;
     private TextView calculationResult;
 
-    private Resources resources;
-    private Context context;
     private Toast toast;
 
     private FileService fileService;
@@ -43,47 +37,34 @@ public class GerminativeActivity extends ActionBarActivity {
     public void calculateGerminative(View v) {
         // (Idanevat tera * 1000 tera / Puhtus / Idavevus) / 100
         try {
-            BigDecimal result2;
+            double a = Double.parseDouble(germinativeSeed.getText().toString());
+            double b = Double.parseDouble(seedMass.getText().toString());
+            double c;
+            double d;
 
-            BigDecimal a = new BigDecimal(germinativeSeed.getText().toString());
-            BigDecimal b = new BigDecimal(seedMass.getText().toString());
+            if (clean.getText().toString().equals(""))
+                c = (double) 100;
+            else
+                c = Double.parseDouble(clean.getText().toString());
 
-            BigDecimal c;
-            BigDecimal d;
+            if (germinative.getText().toString().equals(""))
+                d = (double) 100;
+            else
+                d = Double.parseDouble(germinative.getText().toString());
 
-            if (clean.getText().toString().equals("")) {
-                c = new BigDecimal("100");
-            } else {
-                c = new BigDecimal(clean.getText().toString());
-            }
-
-            if (germinative.getText().toString().equals("")) {
-                d = new BigDecimal("100");
-            } else {
-                d = new BigDecimal(germinative.getText().toString());
-            }
-
-            BigDecimal hundred = new BigDecimal("100");
-            BigDecimal test = new BigDecimal("10000");
-
-            result2 = a.multiply(b);
-            result2 = result2.divide(c);
-            result2 = result2.divide(d);
-            result2 = result2.divide(hundred);
-            result2 = result2.multiply(test);
-
-            calculationResult.setText(String.format("%.0f kg/ha", result2));
+            double result2 = (a * b / c / d) / 100.0;
+            // Multiply by 10 000 because of ha conversion
+            result2 *= (double) 10000;
+            calculationResult.setText(String.format("%.2f kg/ha", result2));
         } catch (NumberFormatException ex) {
             Log.e(TAG, "ERROR: No numbers found for calculation!");
-            calculationResult.setText("0 kg/ha");
+            calculationResult.setText("0.00 kg/ha");
         }
     }
 
     public void showInfoToast(View v) {
         if (toast != null)
             toast.cancel();
-
-        Button infoButton = (Button) v;
 
         switch (v.getTag().toString()) {
             case "seedMassInfo":
@@ -111,7 +92,6 @@ public class GerminativeActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setTitle("");
 
         setContentView(R.layout.activity_germinative);
         initializeVariables();
@@ -155,7 +135,7 @@ public class GerminativeActivity extends ActionBarActivity {
         View layout = inflater.inflate(R.layout.toast_layout, (ViewGroup) findViewById(R.id.toast_layout_root));
 
         TableLayout t = (TableLayout) layout.findViewById(R.id.toastTable);
-        View mTableRow = null;
+        View mTableRow;
 
         try {
             List<String> toastStrings = fileService.loadFile(fileName);
@@ -182,6 +162,6 @@ public class GerminativeActivity extends ActionBarActivity {
     }
 
     public void createToast() {
-        toast.makeText(getApplicationContext(), simpleToastText, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), simpleToastText, Toast.LENGTH_LONG).show();
     }
 }
