@@ -3,37 +3,55 @@ package veske.com.agriculturecalculator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import veske.com.agriculturecalculator.germinative.GerminativeActivity;
 
+public class LoadingActivity extends ActionBarActivity {
 
-public class MainActivity extends ActionBarActivity {
-
-    public static String PACKAGE_NAME;
+    private boolean skipSplash = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setTitle(TitleEnum.MAIN_ACTIVITY_TITLE.toString());
-        //setContentView(R.layout.activity_main);
-        PACKAGE_NAME = getApplicationContext().getPackageName();
-        Intent intent = new Intent(this, GerminativeActivity.class);
+        setContentView(R.layout.activity_loading);
+
+        Thread splashTread = new Thread() {
+
+            @Override
+            public void run() {
+                try {
+                    super.run();
+                    sleep(5000);  //Delay of 10 seconds
+                } catch (Exception e) {
+                    Log.i("ERROR: ", e.toString());
+                } finally {
+                    if (!skipSplash) {
+                        Intent i = new Intent(LoadingActivity.this, MainActivity.class);
+                        startActivity(i);
+                        finish();
+                    }
+
+                }
+            }
+        };
+        splashTread.start();
+    }
+
+    public void skipLoadingSplash(View v) {
+        skipSplash = true;
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }
 
-    public void germinativeClick(View v) {
-        Intent intent = new Intent(this, GerminativeActivity.class);
-        startActivity(intent);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_loading, menu);
         return true;
     }
 

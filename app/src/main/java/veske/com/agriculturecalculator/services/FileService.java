@@ -9,17 +9,12 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import veske.com.agriculturecalculator.MainActivity;
-
 public class FileService {
 
     private Resources resources;
     private List<String> items;
 
-    public List<String> loadFile(String fileName) throws IOException {
-        int rID = resources.getIdentifier(fileName, "raw", MainActivity.PACKAGE_NAME);
-        InputStream raw = resources.openRawResource(rID);
-
+    public List<String> loadFile(InputStream raw) throws IOException {
         byte[] buffer = new byte[raw.available()];
         raw.read(buffer);
         ByteArrayOutputStream oS = new ByteArrayOutputStream();

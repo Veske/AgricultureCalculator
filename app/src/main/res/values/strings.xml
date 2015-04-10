@@ -8,4 +8,7 @@
     <string name="hallitus">Hallitus</string>
     <string name="title_activity_germinative">Idanevuse kalkulaator</string>
     <string name="germinative_seed">Idanevat tera</string>
+    <string name="title_activity_loading">LoadingActivity</string>
+    <string name="kevili">Kevili Logo</string>
+    <string name="maameidtoidab">Maa Meid Toidab</string>
 </resources>

@@ -14,8 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
+import veske.com.agriculturecalculator.MainActivity;
 import veske.com.agriculturecalculator.R;
 import veske.com.agriculturecalculator.services.FileService;
 
@@ -138,7 +140,10 @@ public class GerminativeActivity extends ActionBarActivity {
         View mTableRow;
 
         try {
-            List<String> toastStrings = fileService.loadFile(fileName);
+            int rID = getResources().getIdentifier(fileName, "raw", MainActivity.PACKAGE_NAME);
+            InputStream raw = getResources().openRawResource(rID);
+            List<String> toastStrings = fileService.loadFile(raw);
+
             for (int i = 0, j = toastStrings.size(); i < j; i += 2) {
                 mTableRow = inflater.inflate(R.layout.toast_table_layout_row, (ViewGroup) findViewById(R.id.toast_row));
                 // Set text for name field

@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="veske.com.agriculturecalculator.LoadingActivity">
+
+
+    <ImageButton
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".50"
+        android:id="@+id/imageButton"
+        android:onClick="skipLoadingSplash"
+        android:background="@drawable/kevili"
+        android:contentDescription="@string/kevili"/>
+
+    <ImageButton
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".50"
+        android:id="@+id/imageButton2"
+        android:onClick="skipLoadingSplash"
+        android:background="@drawable/maameidtoidab"
+        android:contentDescription="@string/maameidtoidab"/>
+
+</LinearLayout>
