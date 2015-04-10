@@ -127,7 +127,7 @@ public class GerminativeActivity extends ActionBarActivity {
         germinativeSeed = (EditText) findViewById(R.id.editIdanevTera);
         germinative = (EditText) findViewById(R.id.editIdanevus);
         calculationResult = (TextView) findViewById(R.id.textViewCalculationResult);
-        fileService = new FileService(this);
+        fileService = new FileService();
 
         calculationResult.setAllCaps(true);
     }
