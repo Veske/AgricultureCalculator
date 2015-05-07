@@ -1,14 +1,17 @@
 package veske.com.agriculturecalculator.germinative;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +31,8 @@ public class GerminativeActivity extends ActionBarActivity {
     private EditText germinativeSeed;
     private EditText germinative;
     private TextView calculationResult;
+    private RelativeLayout germinativeLayout;
+    private CountDownTimer countDownTimer;
 
     private Toast toast;
 
@@ -65,8 +70,10 @@ public class GerminativeActivity extends ActionBarActivity {
     }
 
     public void showInfoToast(View v) {
-        if (toast != null)
+        if (toast != null) {
             toast.cancel();
+            countDownTimer.cancel();
+        }
 
         switch (v.getTag().toString()) {
             case "seedMassInfo":
@@ -97,6 +104,31 @@ public class GerminativeActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_germinative);
         initializeVariables();
+
+        germinativeLayout = (RelativeLayout) findViewById(R.id.germinativeLayout);
+        TableLayout tableLayout = (TableLayout) findViewById(R.id.tableLayout);
+
+        tableLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (toast != null) {
+                    toast.cancel();
+                    countDownTimer.cancel();
+                }
+                return false;
+            }
+        });
+
+        germinativeLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (toast != null) {
+                    toast.cancel();
+                    countDownTimer.cancel();
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -164,9 +196,30 @@ public class GerminativeActivity extends ActionBarActivity {
         toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(layout);
         toast.show();
+
+        countDownTimer = new CountDownTimer(15000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                toast.show();
+            }
+
+            public void onFinish() {
+                toast.show();
+            }
+        }.start();
     }
 
     public void createToast() {
-        Toast.makeText(getApplicationContext(), simpleToastText, Toast.LENGTH_LONG).show();
+        toast = Toast.makeText(getApplicationContext(), simpleToastText, Toast.LENGTH_LONG);
+        toast.show();
+
+        countDownTimer = new CountDownTimer(15000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                toast.show();
+            }
+
+            public void onFinish() {
+                toast.show();
+            }
+        }.start();
     }
 }
