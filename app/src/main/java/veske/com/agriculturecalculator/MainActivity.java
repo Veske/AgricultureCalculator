@@ -2,7 +2,7 @@ package veske.com.agriculturecalculator;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,7 +10,7 @@ import android.view.View;
 import veske.com.agriculturecalculator.germinative.GerminativeActivity;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     public static String PACKAGE_NAME;
 
@@ -18,11 +18,8 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setTitle(TitleEnum.MAIN_ACTIVITY_TITLE.toString());
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         PACKAGE_NAME = getApplicationContext().getPackageName();
-        Intent intent = new Intent(this, GerminativeActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     public void germinativeClick(View v) {

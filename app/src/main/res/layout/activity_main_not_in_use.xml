@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_gravity="bottom"
+    tools:context=".MainActivity" >
+
+    <TableLayout
+        android:id="@+id/mainMenuLayout"
+        android:padding="10dip"
+        android:isScrollContainer="true"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TableRow
+            android:id="@+id/mainMenuRow1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" >
+
+            <Button
+                android:id="@+id/buttonGerminative"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".50"
+                android:drawableTop="@drawable/idanevus"
+                android:text="@string/idanevus"
+                android:background="@drawable/menu_button_states"
+                android:onClick="germinativeClick" />
+
+
+            <Space
+                android:layout_width="16dp"/>
+
+            <Button
+                android:id="@+id/buttonMadanaevus2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".50"
+                android:drawableTop="@drawable/idanevus"
+                android:text="@string/väetus_info"
+                android:background="@drawable/menu_button_states" />
+
+            <Space
+                android:layout_width="16dp"/>
+
+            <Button
+                android:id="@+id/buttonMadanaevus3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".50"
+                android:drawableTop="@drawable/idanevus"
+                android:text="@string/hallitus"
+                android:background="@drawable/menu_button_states"
+                />
+        </TableRow>
+
+        <Space
+            android:layout_height="20dp"/>
+
+        <TableRow
+            android:id="@+id/mainMenuRow2"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+
+            <Button
+                android:id="@+id/buttonMadanaevus4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".50"
+                android:drawableTop="@drawable/idanevus"
+                android:text="@string/hallitus"
+                android:background="@drawable/menu_button_states" />
+
+            <Space
+                android:layout_width="16dp"/>
+
+            <Button
+                android:id="@+id/buttonMadanaevus5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".50"
+                android:drawableTop="@drawable/idanevus"
+                android:text="@string/hallitus"
+                android:background="@drawable/menu_button_states" />
+
+            <Space
+                android:layout_width="16dp"/>
+
+            <Button
+                android:id="@+id/buttonMadanaevus6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".50"
+                android:drawableTop="@drawable/idanevus"
+                android:text="@string/hallitus"
+                android:background="@drawable/menu_button_states" />
+
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

@@ -2,7 +2,7 @@ package veske.com.agriculturecalculator.germinative;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -24,7 +24,7 @@ import veske.com.agriculturecalculator.MainActivity;
 import veske.com.agriculturecalculator.R;
 import veske.com.agriculturecalculator.services.FileService;
 
-public class GerminativeActivity extends ActionBarActivity {
+public class GerminativeActivity extends AppCompatActivity {
 
     private EditText seedMass;
     private EditText clean;

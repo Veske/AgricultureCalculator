@@ -2,14 +2,14 @@ package veske.com.agriculturecalculator;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 
-public class LoadingActivity extends ActionBarActivity {
+public class LoadingActivity extends AppCompatActivity {
 
     private boolean skipSplash = false;
 
