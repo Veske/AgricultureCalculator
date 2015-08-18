@@ -63,7 +63,7 @@
                     android:padding="3dp"
                     android:inputType="numberDecimal"
                     android:ems="10"
-                    android:id="@+id/editTeraMass"
+                    android:id="@+id/editSeedMass"
                     android:background="@drawable/input_field_style"
                     android:hint="0 g"
                     android:gravity="center"/>
@@ -105,7 +105,7 @@
                 android:layout_width="wrap_content">
 
                 <EditText
-                    android:id="@+id/editIdanevTera"
+                        android:id="@+id/editGerminativeSeed"
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight=".60"
@@ -152,7 +152,7 @@
                 android:layout_height="fill_parent">
 
                 <EditText
-                    android:id="@+id/editIdanevus"
+                        android:id="@+id/editGerminative"
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight=".60"
@@ -208,7 +208,7 @@
                     android:padding="3dp"
                     android:inputType="numberDecimal"
                     android:ems="10"
-                    android:id="@+id/editPuhtus"
+                    android:id="@+id/editClean"
                     android:background="@drawable/input_field_style"
                     android:hint="@string/clean_hint"
                     android:gravity="center"/>

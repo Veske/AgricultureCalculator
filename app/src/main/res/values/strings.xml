@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AgricultureCalculator</string>
+    <string name="app_name">Põllumeest abistav äpp</string>
 
     <string name="main_menu">Menüü</string>
     <string name="action_settings">Settings</string>

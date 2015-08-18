@@ -1,12 +1,9 @@
 package veske.com.agriculturecalculator.germinative;
 
-import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +13,11 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.OptionsMenu;
+import org.androidannotations.annotations.ViewById;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -24,22 +26,58 @@ import veske.com.agriculturecalculator.MainActivity;
 import veske.com.agriculturecalculator.R;
 import veske.com.agriculturecalculator.services.FileService;
 
+@OptionsMenu(R.menu.menu_germinative)
+@EActivity(R.layout.activity_germinative)
 public class GerminativeActivity extends AppCompatActivity {
 
-    private EditText seedMass;
-    private EditText clean;
-    private EditText germinativeSeed;
-    private EditText germinative;
-    private TextView calculationResult;
-    private RelativeLayout germinativeLayout;
-    private CountDownTimer countDownTimer;
-
-    private Toast toast;
-
-    private FileService fileService;
-
     private static final String TAG = "GerminativeActivity";
+    @ViewById(R.id.editSeedMass)
+    EditText seedMass;
+    @ViewById(R.id.editClean)
+    EditText clean;
+    @ViewById(R.id.editGerminativeSeed)
+    EditText germinativeSeed;
+    @ViewById(R.id.editGerminative)
+    EditText germinative;
+    @ViewById(R.id.textViewCalculationResult)
+    TextView calculationResult;
+    @ViewById(R.id.germinativeLayout)
+    RelativeLayout germinativeLayout;
+    private CountDownTimer countDownTimer;
+    private Toast toast;
+    private FileService fileService;
     private String simpleToastText;
+
+
+    @AfterViews
+    public void initia() {
+        calculationResult.setAllCaps(true);
+        fileService = new FileService();
+
+        TableLayout tableLayout = (TableLayout) findViewById(R.id.tableLayout);
+
+        tableLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (toast != null) {
+                    toast.cancel();
+                    countDownTimer.cancel();
+                }
+                return false;
+            }
+        });
+
+        germinativeLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (toast != null) {
+                    toast.cancel();
+                    countDownTimer.cancel();
+                }
+                return false;
+            }
+        });
+    }
 
     public void calculateGerminative(View v) {
         // (Idanevat tera * 1000 tera / Puhtus / Idavevus) / 100
@@ -64,7 +102,7 @@ public class GerminativeActivity extends AppCompatActivity {
             result2 *= (double) 10000;
             calculationResult.setText(String.format("%.2f kg/ha", result2));
         } catch (NumberFormatException ex) {
-            Log.e(TAG, "ERROR: No numbers found for calculation!");
+            Log.e(TAG, "No numbers found for calculation!", ex);
             calculationResult.setText("0.00 kg/ha");
         }
     }
@@ -96,72 +134,6 @@ public class GerminativeActivity extends AppCompatActivity {
                 createTableToast("idanevat_tera");
                 break;
         }
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_germinative);
-        initializeVariables();
-
-        germinativeLayout = (RelativeLayout) findViewById(R.id.germinativeLayout);
-        TableLayout tableLayout = (TableLayout) findViewById(R.id.tableLayout);
-
-        tableLayout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (toast != null) {
-                    toast.cancel();
-                    countDownTimer.cancel();
-                }
-                return false;
-            }
-        });
-
-        germinativeLayout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (toast != null) {
-                    toast.cancel();
-                    countDownTimer.cancel();
-                }
-                return false;
-            }
-        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_germinative, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void initializeVariables() {
-        seedMass = (EditText) findViewById(R.id.editTeraMass);
-        clean = (EditText) findViewById(R.id.editPuhtus);
-        germinativeSeed = (EditText) findViewById(R.id.editIdanevTera);
-        germinative = (EditText) findViewById(R.id.editIdanevus);
-        calculationResult = (TextView) findViewById(R.id.textViewCalculationResult);
-        fileService = new FileService();
-
-        calculationResult.setAllCaps(true);
     }
 
     private void createTableToast(String fileName) {
