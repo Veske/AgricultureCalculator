@@ -8,12 +8,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.ViewById;
@@ -30,6 +30,7 @@ import veske.com.agriculturecalculator.services.FileService;
 @EActivity(R.layout.activity_germinative)
 public class GerminativeActivity extends AppCompatActivity {
 
+
     private static final String TAG = "GerminativeActivity";
     @ViewById(R.id.editSeedMass)
     EditText seedMass;
@@ -41,8 +42,7 @@ public class GerminativeActivity extends AppCompatActivity {
     EditText germinative;
     @ViewById(R.id.textViewCalculationResult)
     TextView calculationResult;
-    @ViewById(R.id.germinativeLayout)
-    RelativeLayout germinativeLayout;
+
     private CountDownTimer countDownTimer;
     private Toast toast;
     private FileService fileService;
@@ -50,36 +50,32 @@ public class GerminativeActivity extends AppCompatActivity {
 
 
     @AfterViews
-    public void initia() {
+    public void initialize() {
         calculationResult.setAllCaps(true);
         fileService = new FileService();
+
 
         TableLayout tableLayout = (TableLayout) findViewById(R.id.tableLayout);
 
         tableLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (toast != null) {
-                    toast.cancel();
-                    countDownTimer.cancel();
-                }
-                return false;
-            }
-        });
-
-        germinativeLayout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (toast != null) {
-                    toast.cancel();
-                    countDownTimer.cancel();
-                }
+                cleanToast();
                 return false;
             }
         });
     }
 
+    private void cleanToast() {
+        if (toast != null) {
+            toast.cancel();
+            countDownTimer.cancel();
+        }
+    }
+
+    @Click(R.id.calculateGerminative)
     public void calculateGerminative(View v) {
+        cleanToast();
         // (Idanevat tera * 1000 tera / Puhtus / Idavevus) / 100
         try {
             double a = Double.parseDouble(germinativeSeed.getText().toString());
@@ -107,6 +103,7 @@ public class GerminativeActivity extends AppCompatActivity {
         }
     }
 
+    @Click({R.id.seedMassInfo, R.id.seedInfo, R.id.germinativeInfo, R.id.cleanInfo})
     public void showInfoToast(View v) {
         if (toast != null) {
             toast.cancel();
@@ -114,25 +111,32 @@ public class GerminativeActivity extends AppCompatActivity {
         }
 
         switch (v.getTag().toString()) {
-            case "seedMassInfo":
+            case "seedMassInfo": {
                 createTableToast("kultuur");
                 break;
-            case "germinativeInfo":
+            }
+            case "germinativeInfo": {
                 simpleToastText = "Idanevuse protsent väljendatakse protsentides, " +
                         "mis on saadud analüüsitulemustes. Sertifitseeritud seemne " +
                         "puhul on idanevuse protsent märgitud seemneetiketil.";
                 createToast();
                 break;
-            case "cleanInfo":
+            }
+            case "cleanInfo": {
                 simpleToastText = "Seemne puhtuse protsenti mõjutavad erinevad lisandid" +
                         " seemnematerjalis. Teralisandid, umbrohuseemned, katkised terad" +
                         " ja muu materjal mõjutavad seemnematerjali kvaliteeti" +
                         " ja lõppkokkuvõttes külvisenormi.";
                 createToast();
                 break;
-            case "seedInfo":
+            }
+            case "seedInfo": {
                 createTableToast("idanevat_tera");
                 break;
+            }
+            default: {
+                throw new RuntimeException("Unable to create info toast");
+            }
         }
     }
 

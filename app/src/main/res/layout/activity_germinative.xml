@@ -1,247 +1,43 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                android:id="@+id/germinativeLayout"
-                android:clickable="true"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                tools:context="veske.com.agriculturecalculator.germinative.GerminativeActivity" >
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+    >
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView">
+    <include layout="@layout/activity_germinative_scroll"/>
 
-        <TableLayout
-            android:padding="10dip"
-            android:isScrollContainer="true"
-            android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.30"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/textViewCalculationResult"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight=".70"
+            android:gravity="center"
+            android:text="@string/germinative_result"
+            android:textSize="35sp"
+            />
+
+        <Button
+            android:id="@+id/calculateGerminative"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tableLayout"
-            android:clickable="true"
-            android:focusable="true"
-            android:focusableInTouchMode="true">
-
-            <TableRow
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content">
-
-                <TextView
-                    android:id="@+id/teraMass"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".40"
-                    android:textSize="20sp"
-                    android:text="1000 tera mass, g"
-                    android:textAllCaps="true"/>
-
-                <Space
-                    android:layout_width="13dp"/>
-
-                <Button
-                    android:tag="seedMassInfo"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/info"
-                    android:onClick="showInfoToast"/>
-            </TableRow>
-
-            <Space
-                android:layout_height="3dp"/>
-
-            <TableRow
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content">
-
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight=".60"
-                    android:padding="3dp"
-                    android:inputType="numberDecimal"
-                    android:ems="10"
-                    android:id="@+id/editSeedMass"
-                    android:background="@drawable/input_field_style"
-                    android:hint="0 g"
-                    android:gravity="center"/>
-            </TableRow>
-
-            <Space
-                android:layout_height="20dp"/>
-
-            <TableRow
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content">
-
-                <TextView
-                    android:id="@+id/idanevTera"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".40"
-                    android:textSize="20sp"
-                    android:text="@string/germinative_seed"
-                    android:textAllCaps="true"/>
-
-                <Space
-                    android:layout_width="13dp"/>
-
-                <Button
-                    android:tag="seedInfo"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/info"
-                    android:textSize="15sp"
-                    android:onClick="showInfoToast"/>
-            </TableRow>
-
-            <Space
-                android:layout_height="3dp"/>
-
-            <TableRow
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content">
-
-                <EditText
-                        android:id="@+id/editGerminativeSeed"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight=".60"
-                    android:padding="3dp"
-                    android:inputType="numberDecimal"
-                    android:ems="10"
-                    android:background="@drawable/input_field_style"
-                    android:hint="0 m2"
-                    android:gravity="center"/>
-            </TableRow>
-
-            <Space
-                android:layout_height="20dp"/>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-
-                <TextView
-                    android:id="@+id/idanevus"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".40"
-                    android:text="Idanevuse %"
-                    android:textSize="20sp"
-                    android:textAllCaps="true"/>
-
-                <Space
-                    android:layout_width="13dp"/>
-
-                <Button
-                    android:tag="germinativeInfo"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/info"
-                    android:onClick="showInfoToast"/>
-            </TableRow>
-
-            <Space
-                android:layout_height="3dp"/>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-
-                <EditText
-                        android:id="@+id/editGerminative"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight=".60"
-                    android:padding="3dp"
-                    android:inputType="numberDecimal"
-                    android:ems="10"
-                    android:background="@drawable/input_field_style"
-                    android:hint="@string/germinative_hint"
-                    android:gravity="center"/>
-            </TableRow>
-
-            <Space
-                android:layout_height="20dp"/>
-
-            <TableRow
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:minHeight="30dp">
-
-
-                <TextView
-                    android:id="@+id/puhtus"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".40"
-                    android:textSize="20sp"
-                    android:text="Puhtuse %"
-                    android:textAllCaps="true"/>
-
-                <Space
-                    android:layout_width="13dp"/>
-
-                <Button
-                    android:tag="cleanInfo"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/info"
-                    android:onClick="showInfoToast"/>
-            </TableRow>
-
-            <Space
-                android:layout_height="3dp"/>
-
-            <TableRow
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:minHeight="30dp">
-
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight=".60"
-                    android:padding="3dp"
-                    android:inputType="numberDecimal"
-                    android:ems="10"
-                    android:id="@+id/editClean"
-                    android:background="@drawable/input_field_style"
-                    android:hint="@string/clean_hint"
-                    android:gravity="center"/>
-            </TableRow>
-        </TableLayout>
-    </ScrollView>
-
-    <TextView
-        android:id="@+id/textViewCalculationResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:gravity="center"
-        android:textSize="35sp"
-        android:layout_above="@+id/calculateGerminative"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/scrollView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-
-    <Button
-        android:id="@+id/calculateGerminative"
-        android:text="Arvuta"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/input_field_style"
-        android:onClick="calculateGerminative"
-        android:textAllCaps="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"/>
-
-</RelativeLayout>
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/menu_button_states"
+            android:nextFocusDown="@+id/editSeedMass"
+            android:text="@string/calculate_germinative"
+            android:textAllCaps="true"
+            android:textSize="25sp"
+            />
+    </LinearLayout>
+</LinearLayout>

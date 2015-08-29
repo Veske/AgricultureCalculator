@@ -3,11 +3,10 @@
 
     <string name="main_menu">Menüü</string>
     <string name="action_settings">Settings</string>
-    <string name="idanevus">Külvisenorm</string>
-    <string name="väetus_info">Väetus info</string>
+    <string name="menu_germinative">Külvisenormi arvutus</string>
+    <string name="menu_fertilize">Väetamise ABC</string>
     <string name="hallitus">Hallitus</string>
     <string name="title_activity_germinative">Idanevuse kalkulaator</string>
-    <string name="germinative_seed">Idanevat tera</string>
     <string name="title_activity_loading">LoadingActivity</string>
     <string name="kevili">Kevili Logo</string>
     <string name="maameidtoidab">Maa Meid Toidab</string>

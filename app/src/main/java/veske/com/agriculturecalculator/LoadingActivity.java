@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
-import com.google.android.gms.analytics.GoogleAnalytics;
-
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
@@ -41,17 +39,5 @@ public class LoadingActivity extends AppCompatActivity {
         Intent intent = MainActivity_.intent(getApplicationContext()).get();
         startActivity(intent);
         finish();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        GoogleAnalytics.getInstance(this).reportActivityStart(this);
-    }
-
-    @Override
-    protected void onStop() {
-        GoogleAnalytics.getInstance(this).reportActivityStop(this);
-        super.onStop();
     }
 }
