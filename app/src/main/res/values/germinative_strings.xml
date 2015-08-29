@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="clean_hint">100 %</string>
+    <!-- Germinative activity texts -->
+    <string name="seed_mass_text">1000 tera mass, g</string>
+    <string name="seed_mass_hint">0 g</string>
+
+    <string name="germinative_seed_text">Idanevat tera</string>
+    <string name="germinative_seed_hint">0 m2</string>
+
+    <string name="germinative_text">Idanevuse %</string>
     <string name="germinative_hint">100 %</string>
+
+    <string name="clean_text">Puhtuse %</string>
+    <string name="clean_hint">100 %</string>
+
+    <string name="calculate_germinative">Arvuta</string>
+    <string name="germinative_result">0.00 KG/HA</string>
 </resources>

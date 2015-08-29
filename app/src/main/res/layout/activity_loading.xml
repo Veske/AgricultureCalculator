@@ -9,16 +9,25 @@
     <ImageButton
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight=".50"
+        android:layout_weight=".30"
         android:id="@+id/imageButton"
         android:onClick="skipLoadingSplash"
-        android:background="@drawable/kevili"
+        android:background="@drawable/kevili_logo"
         android:contentDescription="@string/kevili"/>
 
     <ImageButton
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight=".50"
+        android:layout_weight=".30"
+        android:id="@+id/imageButton3"
+        android:onClick="skipLoadingSplash"
+        android:background="@drawable/kevili2"
+        android:contentDescription="@string/kevili"/>
+
+    <ImageButton
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".40"
         android:id="@+id/imageButton2"
         android:onClick="skipLoadingSplash"
         android:background="@drawable/maameidtoidab"
