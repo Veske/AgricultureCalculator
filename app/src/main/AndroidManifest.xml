@@ -10,10 +10,9 @@
     <application
         android:name=".Analytics"
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/agriculture_icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".LoadingActivity_"
             android:label="@string/app_name"
@@ -24,7 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name=".germinative.GerminativeActivity_"
             android:label="@string/title_activity_germinative"
@@ -32,13 +30,18 @@
             android:theme="@style/Theme.NoTitle"
             android:windowSoftInputMode="stateHidden|adjustResize">
         </activity>
-
         <activity
             android:name=".MainActivity_"
             android:label="@string/title_activity_loading"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.NoTitle"
-            >
+            android:theme="@style/Theme.NoTitle">
+        </activity>
+
+        <activity
+            android:name=".helper.HelperActivity_"
+            android:label="@string/title_activity_helper"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NoTitle">
         </activity>
 
         <!-- Enable background dispatching to improve delivery on non-Google Play devices -->
