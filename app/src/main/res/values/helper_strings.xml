@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cultures">
+        <item>Hernes</item>
+        <item>Kaer</item>
+        <item>Kartul</item>
+        <item>Mais siloks</item>
+        <item>Oder</item>
+        <item>Raps</item>
+        <item>Rapsi 1tn põhuga</item>
+        <item>Rukis</item>
+        <item>Rüps</item>
+        <item>Suvinisu</item>
+        <item>Talinisu</item>
+        <item>Talioder</item>
+        <item>Tatar</item>
+        <item>Teravilja 1 tn põhuga</item>
+    </string-array>
+
+    <string-array name="harvestValues">
+        <item>1.0 tn/ha</item>
+        <item>2.0 tn/ha</item>
+        <item>3.0 tn/ha</item>
+        <item>3.5 tn/ha</item>
+        <item>4.0 tn/ha</item>
+        <item>4.5 tn/ha</item>
+        <item>5.0 tn/ha</item>
+        <item>5.5 tn/ha</item>
+        <item>6.0 tn/ha</item>
+        <item>6.5 tn/ha</item>
+        <item>7.0 tn/ha</item>
+        <item>7.5 tn/ha</item>
+        <item>8.0 tn/ha</item>
+        <item>8.5 tn/ha</item>
+        <item>9.0 tn/ha</item>
+        <item>9.5 tn/ha</item>
+        <item>10.0 tn/ha</item>
+        <item>10.5 tn/ha</item>
+    </string-array>
+</resources>

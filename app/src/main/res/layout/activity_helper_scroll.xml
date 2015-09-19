@@ -24,13 +24,14 @@
             >
 
             <TextView
-                android:layout_width="0dp"
+                android:text="Kultuur"/>
+
+
+            <Spinner
+                android:id="@+id/cultureSpinner"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight=".40"
-                android:editable="false"
-                android:text="Kultuur"
-                android:textAllCaps="true"
-                android:textSize="20sp"
+                android:spinnerMode="dropdown"
                 />
         </TableRow>
 
@@ -43,9 +44,14 @@
             >
 
             <TextView
-                android:text="Kultuuri valik"/>
+                android:text="Saagiootus"/>
 
-
+            <Spinner
+                android:id="@+id/harvestSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                />
         </TableRow>
     </TableLayout>
 </ScrollView>

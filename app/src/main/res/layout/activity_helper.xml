@@ -21,6 +21,7 @@
         >
 
         <TextView
+            android:id="@+id/n_value"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginLeft="10dp"

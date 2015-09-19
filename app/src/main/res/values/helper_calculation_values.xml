@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The order must mirror the string array order of harvestValues and cultures -->
+    <string-array name="N">
+        <item>36.0</item>
+        <item>22.0</item>
+        <item>4.0</item>
+        <item>0</item>
+        <item>21.0</item>
+        <item>33.0</item>
+        <item>22.0</item>
+        <item>12.0</item>
+        <item>25.0</item>
+        <item>22.0</item>
+        <item>22.0</item>
+        <item>11.0</item>
+        <item>44.0</item>
+        <item>5.0</item>
+    </string-array>
+
+    <string-array name="P">
+        <item>4.3</item>
+        <item>3.2</item>
+        <item>0.4</item>
+        <item>0.7</item>
+        <item>3.5</item>
+        <item>8.0</item>
+        <item>3.5</item>
+        <item>3.5</item>
+        <item>8.0</item>
+        <item>3.5</item>
+        <item>3.5</item>
+        <item>3.3</item>
+        <item>11.0</item>
+        <item>0.9</item>
+    </string-array>
+
+    <string-array name="K">
+        <item>11.5</item>
+        <item>8.0</item>
+        <item>5.0</item>
+        <item>3.0</item>
+        <item>4.2</item>
+        <item>8.0</item>
+        <item>33.0</item>
+        <item>5.0</item>
+        <item>8.0</item>
+        <item>4.2</item>
+        <item>4.5</item>
+        <item>7.3</item>
+        <item>62.0</item>
+        <item>10.5</item>
+    </string-array>
+
+    <string-array name="Mg">
+        <item>12.5</item>
+        <item>10.0</item>
+        <item>22.5</item>
+        <item>22.5</item>
+        <item>15.0</item>
+        <item>17.5</item>
+        <item>0</item>
+        <item>12.5</item>
+        <item>15.0</item>
+        <item>10.0</item>
+        <item>12.5</item>
+        <item>10.0</item>
+        <item>0</item>
+        <item>0</item>
+    </string-array>
+
+    <string-array name="S">
+        <item>12.5</item>
+        <item>12.5</item>
+        <item>11.0</item>
+        <item>25.0</item>
+        <item>12.5</item>
+        <item>6.6</item>
+        <item>18.5</item>
+        <item>17.5</item>
+        <item>5.0</item>
+        <item>12.5</item>
+        <item>17.5</item>
+        <item>17.5</item>
+        <item>0</item>
+        <item>0</item>
+    </string-array>
+</resources>
