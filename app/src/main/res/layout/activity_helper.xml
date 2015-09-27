@@ -8,12 +8,15 @@
     <!-- Input -->
     <Spinner
         android:id="@+id/cultureSpinner"
+        style="@style/spinner_style"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:gravity="center"
         android:spinnerMode="dropdown"
         />
@@ -26,11 +29,14 @@
 
     <Spinner
         android:id="@+id/harvestSpinner"
+        style="@style/spinner_style"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:gravity="center"
         android:spinnerMode="dropdown"
         />

@@ -51,12 +51,12 @@ public class HelperActivity extends AppCompatActivity implements OnItemSelectedL
     }
 
     public void initializeSpinners() {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.cultures, R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.cultures, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         cultureSpinner.setAdapter(adapter);
         cultureSpinner.setOnItemSelectedListener(this);
 
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.harvestValues, R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.harvestValues, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         harvestSpinner.setAdapter(adapter2);
         harvestSpinner.setOnItemSelectedListener(this);
