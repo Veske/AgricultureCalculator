@@ -8,41 +8,98 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="50dp"
+        android:gravity="center"
         android:text="Kultuuride väetusinfo"
         />
 
-    <include layout="@layout/activity_helper_scroll"/>
+    <Spinner
+        android:id="@+id/cultureSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:spinnerMode="dropdown"
+        />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
+        />
+
+    <Spinner
+        android:id="@+id/harvestSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:spinnerMode="dropdown"
+        />
+
+
+    <Space
+        android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="0.30"
-        android:orientation="vertical"
-        >
+        />
 
-        <TextView
+
+    <TextView
             android:id="@+id/n_value"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_weight=".70"
             android:gravity="center"
             android:text="@string/germinative_result"
             android:textSize="35sp"
             />
 
-        <Button
-            android:id="@+id/helperButton"
+    <TextView
+        android:id="@+id/p_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:text="@string/germinative_result"
+        android:textSize="35sp"
+        />
+
+    <TextView
+        android:id="@+id/k_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:text="@string/germinative_result"
+        android:textSize="35sp"
+        />
+
+    <TextView
+        android:id="@+id/mg_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/menu_button_states"
-            android:text="Kuva info"
-            android:textAllCaps="true"
-            android:textSize="25sp"
+        android:gravity="center"
+        android:text="@string/germinative_result"
+        android:textSize="35sp"
             />
-    </LinearLayout>
+
+    <TextView
+        android:id="@+id/s_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:text="@string/germinative_result"
+        android:textSize="35sp"
+        />
 </LinearLayout>
