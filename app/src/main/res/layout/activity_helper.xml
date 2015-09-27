@@ -5,13 +5,7 @@
               android:orientation="vertical"
     >
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:text="Kultuuride väetusinfo"
-        />
-
+    <!-- Input -->
     <Spinner
         android:id="@+id/cultureSpinner"
         android:layout_width="fill_parent"
@@ -19,6 +13,7 @@
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:spinnerMode="dropdown"
         />
@@ -44,9 +39,24 @@
     <Space
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.30"
+        android:layout_weight="0.05"
         />
 
+
+    <!-- Results -->
+
+
+    <!-- N -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/result_box"
+        android:gravity="center"
+        android:text="N kg/ha"
+        android:textSize="25sp"
+        />
 
     <TextView
             android:id="@+id/n_value"
@@ -54,10 +64,29 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:background="@drawable/result_box"
             android:gravity="center"
             android:text="@string/germinative_result"
-            android:textSize="35sp"
+            android:textSize="25sp"
             />
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
+        />
+
+    <!-- P -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/result_box"
+        android:gravity="center"
+        android:text="P kg/ha"
+        android:textSize="25sp"
+        />
 
     <TextView
         android:id="@+id/p_value"
@@ -65,9 +94,28 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:background="@drawable/result_box"
         android:gravity="center"
         android:text="@string/germinative_result"
-        android:textSize="35sp"
+        android:textSize="25sp"
+        />
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
+        />
+
+    <!-- K -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/result_box"
+        android:gravity="center"
+        android:text="K kg/ha"
+        android:textSize="25sp"
         />
 
     <TextView
@@ -76,9 +124,28 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:background="@drawable/result_box"
         android:gravity="center"
         android:text="@string/germinative_result"
-        android:textSize="35sp"
+        android:textSize="25sp"
+        />
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
+        />
+
+    <!-- Mg -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/result_box"
+        android:gravity="center"
+        android:text="Mg kg/ha"
+        android:textSize="25sp"
         />
 
     <TextView
@@ -87,10 +154,29 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+        android:background="@drawable/result_box"
         android:gravity="center"
         android:text="@string/germinative_result"
-        android:textSize="35sp"
+        android:textSize="25sp"
             />
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
+        />
+
+    <!-- S -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/result_box"
+        android:gravity="center"
+        android:text="S kg/ha"
+        android:textSize="25sp"
+        />
 
     <TextView
         android:id="@+id/s_value"
@@ -98,8 +184,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:background="@drawable/result_box"
         android:gravity="center"
         android:text="@string/germinative_result"
-        android:textSize="35sp"
+        android:textSize="25sp"
         />
 </LinearLayout>

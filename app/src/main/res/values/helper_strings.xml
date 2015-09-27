@@ -37,4 +37,5 @@
         <item>10.0 tn/ha</item>
         <item>10.5 tn/ha</item>
     </string-array>
+    <string name="activity_helper_heading">Kultuuride väetusinfo</string>
 </resources>
